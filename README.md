@@ -1,1 +1,2 @@
-# maitc-task
+# Terraform apply
+# Terraform destroy
