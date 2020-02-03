@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loadgen
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: loadgen
+  template:
+    metadata:
+      labels:
+        app: loadgen
+    spec:
+      containers:
+      - name: loadgen
+        image: k8s.gcr.io/busybox
+        args:
+        - /bin/sh
+        - -c
+        - while true; do wget -q -O- http://a5f74ed7b467611eaa9d9020e37fce4a-1280749155.eu-central-1.elb.amazonaws.com/:1234; done

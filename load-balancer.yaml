@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: kitten-lb
+spec:
+  selector:
+    test: "kitten-cont"
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 1234
+  type: LoadBalancer
